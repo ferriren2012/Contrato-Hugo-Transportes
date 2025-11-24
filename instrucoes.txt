@@ -1,0 +1,11 @@
+PASSO A PASSO PARA SUBIR NO NETLIFY
+
+1. Baixe o arquivo ZIP.
+2. Extraia a pasta no seu computador.
+3. Acesse https://netlify.com
+4. Clique em "Add new site" → "Deploy manually".
+5. Arraste o arquivo index.html para a área indicada.
+6. O Netlify vai gerar um link automático.
+7. Copie o link e envie para seus clientes no WhatsApp.
+
+Se quiser adicionar logotipo, cores ou PDF real gerado automaticamente, peça que eu atualizo o pacote.

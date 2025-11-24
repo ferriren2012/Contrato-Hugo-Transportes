@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Contrato Hugo Transportes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font-family:Arial;padding:20px;max-width:900px;margin:auto;line-height:1.5}
+.contract-box{border:1px solid #ccc;padding:15px;border-radius:6px;margin-bottom:20px;height:300px;overflow-y:auto}
+label{display:block;margin-top:10px;font-weight:bold}
+input,select{width:100%;padding:8px;margin-top:5px}
+button{padding:12px 20px;font-size:16px;margin-top:20px;cursor:pointer}
+canvas{border:1px solid #000;margin-top:10px}
+</style>
+</head>
+<body>
+<h2>Contrato Hugo Transportes</h2>
+
+<div class="contract-box">
+<pre>CONTRATO PARTICULAR DE PRESTAÇÃO DE SERVIÇO DE TRANSPORTE
+ESCOLAR – COLÉGIO MILITAR
+
+Pelo presente instrumento ... (texto completo aqui)
+</pre>
+</div>
+
+<h3>Preencha seus dados:</h3>
+
+<form id="form">
+<label>Nome do contratante</label>
+<input name="nome">
+
+<label>RG</label>
+<input name="rg">
+
+<label>Órgão expedidor</label>
+<input name="orgao">
+
+<label>CPF</label>
+<input name="cpf">
+
+<label>Celular</label>
+<input name="cel">
+
+<label>Endereço</label>
+<input name="endereco">
+
+<label>Aluno(a)</label>
+<input name="aluno">
+
+<label>Série</label>
+<input name="serie">
+
+<label>Turno</label>
+<input name="turno">
+
+<label>Assinatura</label>
+<canvas id="sig" width="300" height="150"></canvas>
+<button type="button" onclick="clearSig()">Limpar assinatura</button>
+
+<label><input type="checkbox" id="aceito"> Aceito os termos do contrato</label>
+
+<button type="button" onclick="gerarPDF()">Gerar PDF</button>
+</form>
+
+<script>
+var canvas=document.getElementById('sig');
+var ctx=canvas.getContext('2d');
+var desenhando=false;
+
+canvas.addEventListener('mousedown',()=>desenhando=true);
+canvas.addEventListener('mouseup',()=>desenhando=false);
+canvas.addEventListener('mousemove',desenhar);
+
+function desenhar(e){
+ if(!desenhando)return;
+ ctx.fillStyle='black';
+ ctx.beginPath();
+ ctx.arc(e.offsetX,e.offsetY,2,0,Math.PI*2);
+ ctx.fill();
+}
+function clearSig(){ctx.clearRect(0,0,300,150);}
+
+function gerarPDF(){
+ if(!document.getElementById('aceito').checked){
+   alert("Você precisa aceitar os termos.");
+   return;
+ }
+ alert("PDF gerado (simulado).");
+}
+</script>
+
+</body>
+</html>
